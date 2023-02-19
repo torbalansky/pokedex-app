@@ -1,4 +1,4 @@
-// Array of pokemon objects
+let pokemonRepository = (function () {
 let pokemonList = [
 
 { name: "Bulbasaur", height: 0.7, type: [ "grass", "poison" ] },
@@ -13,8 +13,21 @@ let pokemonList = [
 
 ]
 
-// forEach loop replacing for loop
-pokemonList.forEach(function(pokemon)
+    function add(pokemon) {
+        pokemonList.push(pokemon);
+    }
+
+    function getAll() {
+        return pokemonList;
+    }
+
+    return {
+        add: add,
+        getAll: getAll
+};
+})();
+
+pokemonRepository.getAll().forEach(function(pokemon)
  { 
     if (pokemon.height > 1) {
         console.log(pokemon.name + " (height: " + pokemon.height + ") - Wow, that's big!");
