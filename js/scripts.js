@@ -1,5 +1,6 @@
+// Array of pokemon objects
 let pokemonList = [
- // Initialize empty array   
+
 { name: "Bulbasaur", height: 0.7, type: [ "grass", "poison" ] },
     
 { name: "Kakuna", height: 0.6, type: [ "bug", "poison" ] },
@@ -12,18 +13,16 @@ let pokemonList = [
 
 ]
 
-
-for (let i = 0; i < pokemonList.length; i++)
-// Initalize for loop to run for the total length of the array
-
+// forEach loop replacing for loop
+pokemonList.forEach(function(pokemon)
  { 
-    if (pokemonList[i].height > 1) {
-        console.log(pokemonList[i].name + " (height: " + pokemonList[i].height + ") - Wow, that's big!");
-        document.write(pokemonList[i].name + " (height: " + pokemonList[i].height + ")  - Wow, that's big!" + "<br>");
+    if (pokemon.height > 1) {
+        console.log(pokemon.name + " (height: " + pokemon.height + ") - Wow, that's big!");
+        document.write(pokemon.name + " (height: " + pokemon.height + ")  - Wow, that's big!" + "<br>");
     } 
     
     else {
-        console.log(pokemonList[i].name + " (height: " + pokemonList[i].height + ")");
-        document.write(pokemonList[i].name + " (height: " + pokemonList[i].height + ")" + "<br>");
+        console.log(pokemon.name + " (height: " + pokemon.height + ")");
+        document.write(pokemon.name + " (height: " + pokemon.height + ")" + "<br>");
     }
-}
+});
