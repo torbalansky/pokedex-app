@@ -14,28 +14,54 @@ let pokemonList = [
 ]
 
     function add(pokemon) {
-        pokemonList.push(pokemon);
+        {
+            if (
+                //this ensure that only valid pokemon objects will be added to the array
+                typeof pokemon === "object" &
+                "name" in pokemon &
+                "height" in pokemon &
+                "type" in pokemon
+              ) {
+                repository.push(pokemon);
+              } else {
+                console.log("pokemon is not correct");
+              }
+        }
     }
 
     function getAll() {
-        return pokemonList;
+            return pokemonList;
+        }
+
+        function addListItem(pokemon){
+        //organization of functions and selectors
+        let pokemonList = document.querySelector(".pokemon-list");
+        let listpokemon = document.createElement("li");
+        let button = document.createElement("button");
+        //creates button for each pokemon
+        button.innerText = pokemon.name;
+        button.classList.add("button-class");
+        listpokemon.appendChild(button);
+        pokemonList.appendChild(listpokemon);
+        //adds EventListener to button
+        button.addEventListener("click", function() {
+            showDetails(pokemon);
+        });
     }
 
-    return {
+    function showDetails(pokemon) {
+        console.log(`Name: ${pokemon.name}, Height: ${pokemon.height} cm,  Type: ${pokemon.type}`);
+        }
+
+       return {
         add: add,
-        getAll: getAll
+        getAll: getAll,
+        addListItem: addListItem
 };
 })();
 
-pokemonRepository.getAll().forEach(function(pokemon)
- { 
-    if (pokemon.height > 1) {
-        console.log(pokemon.name + " (height: " + pokemon.height + ") - Wow, that's big!");
-        document.write(pokemon.name + " (height: " + pokemon.height + ")  - Wow, that's big!" + "<br>");
-    } 
-    
-    else {
-        console.log(pokemon.name + " (height: " + pokemon.height + ")");
-        document.write(pokemon.name + " (height: " + pokemon.height + ")" + "<br>");
-    }
+console.log(pokemonRepository.getAll());
+
+pokemonRepository.getAll().forEach(function(pokemon) {
+    pokemonRepository.addListItem(pokemon); 
 });
