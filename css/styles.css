@@ -1,15 +1,121 @@
+body {
+    background: linear-gradient(to right, rgb(247, 217, 247), rgb(179, 213, 237));
+    font-size: 22px;
+    color: white;
+    margin: 0;
+    font-family:'Lucida Sans', 'Lucida Grande', Verdana, sans-serif;
+    text-align: center;
+  }
+
 .button-class {
     padding: 16px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     width: 200px;
-    font-size: 18px;
+    font-size: 24px;
     margin: 4px 4px;
     -webkit-transition-duration: 0.5s; /* Safari */
     transition-duration: 0.5s;
     cursor: pointer;
-    background-color: white;
-    color:black;
-    border: 2px solid rgb(78, 125, 125);
+    background-color: #defde0;
+    color: rgb(1, 1, 1);
+    border: 2px solid white;
+    border-radius: 5px;
 }
+
+header {
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 15px;
+  }
+  
+  .pokemon-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 600px;
+  }
+  
+  .pokemon-list li {
+    margin: 10px 0;
+  }
+  
+  .pokemon-name-list {
+    background-color: #f1f1f1;
+    border: none;
+    color: aqua;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .pokemon-name-list:hover {
+    background-color: #ddd;
+  }
+  
+  /* Modal styling */
+  #pokemon-modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    visibility: hidden;
+  }
+  
+  #pokemon-modal-container.is-visible {
+    visibility: visible;
+  }
+  
+  .pokemon-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #0c0c0c;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: transparent;
+    color: aqua;
+    border-radius: 1px;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid rgb(78, 125, 125);
+  }
+  
+  .modal-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+  }
+  
+  .modal-list-item {
+    margin: 10px 0;
+    font-size: 18px;
+  }
+  
+  .modal-img {
+    display: block;
+    margin: 10px auto;
+    max-width: 300px;
+    height: 160px;
+  }
+  
