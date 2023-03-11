@@ -19,7 +19,7 @@ let pokemonRepository = (function () {
         pokemonTypes += ', ';
       }
     }
-    let typesElement = $('<p>' + '<strong>'+ 'Types: ' + '</strong>' + pokemonTypes + '</p>');
+    let typesElement = $('<p>' + '<strong>'+ 'Type/s: ' + '</strong>' + pokemonTypes + '</p>');
     let imageElement = $('<img class="modal-img">');
     imageElement.attr('src', item.imageUrl);
 
@@ -54,9 +54,12 @@ let pokemonRepository = (function () {
         button.classList.add("btn-primary");
         button.setAttribute('data-toggle', 'modal');
         button.setAttribute('data-target', '#pokemon-modal');
-        listItem.classList.add("list-group-item"); 
+        listItem.classList.add("list-group-item");
+        listItem.classList.add("col-xl-3");
+        listItem.classList.add("col-lg-4");
+        listItem.classList.add("col-md-6");  
         listItem.appendChild(button);
-        pokemonList.appendChild(button);
+        pokemonList.appendChild(listItem);
 
         button.addEventListener("click", function(event) {
             showDetails(pokemon);
@@ -120,6 +123,28 @@ let pokemonRepository = (function () {
     });
   }
 
+  function searchPokemon() {
+    let searchInput = document.getElementById("search-input");
+    let searchText = searchInput.value.toLowerCase();
+    let allPokemon = document.querySelectorAll('.list-group-item');
+  
+    allPokemon.forEach(function(pokemon) {
+      let pokemonName = pokemon.querySelector('.button-class').innerText.toLowerCase();
+  
+      if (pokemonName.includes(searchText)) {
+        pokemon.style.display = 'block';
+      } else {
+        pokemon.style.display = 'none';
+      }
+    });
+  }  
+
+  let searchInput = document.getElementById("search-input");
+searchInput.addEventListener("input", function () {
+  searchPokemon();
+});
+
+
        return {
         add: add,
         getAll: getAll,
@@ -127,7 +152,8 @@ let pokemonRepository = (function () {
         loadList: loadList,
         loadDetails: loadDetails,
         showDetails: showDetails,
-        showModal: showModal
+        showModal: showModal,
+        searchPokemon: searchPokemon
     };
 })();
 

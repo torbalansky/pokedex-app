@@ -27,8 +27,8 @@ body {
   text-align: center;
   text-decoration: none;
   display:inline-table;
-  width: 200px;
-  font-size: 24px;
+  width: 180px;
+  font-size: 22px;
   margin: 14px 14px;
   -webkit-transition-duration: 0.5s; /* Safari */
   transition-duration: 0.5s;
@@ -37,6 +37,7 @@ body {
   color: black;
   border: 2px solid white;
   border-radius: 5px;
+  text-transform: capitalize;
 }
   
 .list-group {
@@ -45,7 +46,15 @@ body {
   margin: 50px auto;
   width: 100%;
 }
-    
+
+.list-group-item {
+  width: 20%;
+  float: left;
+  text-align: center;
+  background-color: black;
+}
+
+   
 .modal-body {
   background-color: black;
   color: white;
@@ -57,3 +66,8 @@ body {
   max-width: 40%;
   height: auto;
   }
+
+.modal-title {
+  text-transform: capitalize;
+  font-size: medium;
+}
