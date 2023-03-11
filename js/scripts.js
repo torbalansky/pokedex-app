@@ -1,8 +1,8 @@
 let pokemonRepository = (function () {
-    let pokemonList = [];
+    let pokemonList = []; // An array to store the Pokemon data
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
     const $ = window.$;
-
+// Function to display the modal with Pokemon data
   function showModal(item) {
     let modalBody = $('.modal-body');
     let modalTitle = $('.modal-title');
@@ -28,7 +28,7 @@ let pokemonRepository = (function () {
     modalBody.append(typesElement);
     modalBody.append(imageElement);
   }
-
+  // Function to add a Pokemon to the list
   function add(pokemon) {
     if (
       typeof pokemon === "object" &&
@@ -40,11 +40,11 @@ let pokemonRepository = (function () {
       console.log("pokemon is not correct");
     }
   }
-
+    // Function to get all the Pokemon in the list
     function getAll() {
         return pokemonList;
         }
-
+    // Function to add a Pokemon to the list and display it as a list item
     function addListItem(pokemon) {
         let pokemonList = document.querySelector(".list-group");
         let listItem = document.createElement("li");
@@ -57,28 +57,28 @@ let pokemonRepository = (function () {
         listItem.classList.add("list-group-item"); 
         listItem.appendChild(button);
         pokemonList.appendChild(listItem);
-
+        // Add an event listener to show the modal when the button is clicked
         button.addEventListener("click", function(event) {
             showDetails(pokemon);
         });
     }
-
+    // Function to reload the page when the navbar brand is clicked
     let navbarBrand = document.querySelector('.navbar-brand');
     navbarBrand.addEventListener('click', function() {
       location.reload();
     });
-
+  // Function to show a loading message while the Pokemon data is being fetched
   function showLoadingMessage() {
     let pokemonList = document.querySelector('.pokemon-list');
     let loadingMessage = document.createElement('p');
     pokemonList.appendChild(loadingMessage);
   }
-  
+  // Function to hide the loading message after the Pokemon data is fetched
   function hideLoadingMessage() {
     let pokemonList = document.querySelector('.pokemon-list');
     pokemonList.innerHTML = '';
   }
-
+  // Function to fetch the Pokemon data from the PokeAPI
   function loadList() {
     showLoadingMessage();
     return fetch(apiUrl)
@@ -98,7 +98,7 @@ let pokemonRepository = (function () {
       console.error(e);
     })
   }
-
+  // This function takes an item as an argument, fetches its details from a given URL and updates the item with the details.
   function loadDetails (item) {
     let url = item.detailsUrl;
     return fetch(url).then(function(response) {
@@ -111,14 +111,14 @@ let pokemonRepository = (function () {
       console.error(e);
     });
   }
-
+  // This function takes an item as an argument, loads its details using the loadDetails function and shows a modal with the item details.
   function showDetails (item) {
     pokemonRepository.loadDetails(item)
     .then(function () {
       showModal(item);
     });
   }
-
+  // This function searches for a pokemon based on the text entered in the search input and filters the displayed list accordingly.
   function searchPokemon() {
     let searchInput = document.getElementById("search-input");
     let searchText = searchInput.value.toLowerCase();
@@ -134,12 +134,12 @@ let pokemonRepository = (function () {
       }
     });
   }  
-
+// Get the search input element and attach an event listener that triggers searchPokemon function on input.
   let searchInput = document.getElementById("search-input");
 searchInput.addEventListener("input", function () {
   searchPokemon();
 });
-
+// This object returns public functions that can be accessed outside of the module.
        return {
         add: add,
         getAll: getAll,
@@ -151,7 +151,7 @@ searchInput.addEventListener("input", function () {
         searchPokemon: searchPokemon
     };
 })();
-
+// This code block loads the list of pokemon using the loadList function and adds list items to the page for each pokemon.
 pokemonRepository.loadList().then(function () {
   pokemonRepository.getAll().forEach(function (pokemon) {
     pokemonRepository.addListItem(pokemon);
