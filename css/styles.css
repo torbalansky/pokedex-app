@@ -7,16 +7,18 @@ body {
   }
 
 
-.navbar {   
+.navbar {  
+  height: 80px;
   padding: 10px;
   font-weight:bold;
-  }
-
-.btn {
-  color: white;
-  background-color: green;
+  color: red;
+  padding-left: 20px;
   }
   
+.form-control {
+  background-color: rgb(192, 255, 233);
+}
+
 .logo-pokedex {
   margin-right: auto;
   height: 30px;
@@ -48,8 +50,8 @@ body {
 }
 
 .list-group-item {
-  width: 20%;
-  float: left;
+  display: grid;
+  float:left;
   text-align: center;
   background-color: black;
 }
