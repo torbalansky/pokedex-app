@@ -6,6 +6,7 @@
   --search-input: rgb(192, 255, 233);
   --font-family: OCR A Std, monospace;
   --cursor: pointer;
+  --footer-color: rgb(187, 185, 185);
 }
 
 body {
@@ -93,7 +94,7 @@ padding-bottom: 0px;
 }
 
 .page-footer {
-  background-color: var(--background-color);
+  background-color: var(--footer-color);
   color: var(--background);
   position: sticky;
   bottom: 0;
@@ -102,6 +103,7 @@ padding-bottom: 0px;
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  position: fixed;
 }
 
 .page-footer a {
