@@ -1,43 +1,62 @@
+:root {
+  --background-color: white;
+  --secondary-color: #d5f8d7;
+  --background: black;
+  --color: red;
+  --search-input: rgb(192, 255, 233);
+  --font-family: OCR A Std, monospace;
+  --cursor: pointer;
+}
+
 body {
-  background: black;
-  font-size: 22px;
-  color: rgb(0, 0, 0);
-  font-family:'Lucida Sans', 'Lucida Grande', Verdana, sans-serif;
-  text-align: center;
-  }
+  background: var(--background);
+}
 
-
-.navbar {  
-  height: 80px;
-  padding: 10px;
-  font-weight:bold;
-  color: red;
-  padding-left: 20px;
-  }
+.navbar-brand {  
+  margin-left: 15px;
+  padding-bottom: 5px;
+  font-size: 26px;
+  font-weight: bold;
+  font-family: var(--font-family);
+  cursor: var(--cursor);
+}
   
 .form-control {
-  background-color: rgb(192, 255, 233);
+  background-color: var(--search-input);
+  height: 40px;
+  border-color: var(--background);
 }
 
 .logo-pokedex {
-  margin-right: auto;
-  height: 30px;
+  position: relative;
+  height: 40px;
+  cursor: pointer;
+  padding-bottom: 5px;
   }
 
+.jumbotron {
+background-color: var(--background);
+color: var(--background-color);
+font-family: var(--font-family);
+text-align: center;
+padding-top: 20px;
+padding-bottom: 0px;
+}
+
 .button-class {
-  padding: 16px 16px;
-  text-align: center;
+  padding: 12px 12px;
   text-decoration: none;
-  display:inline-table;
-  width: 180px;
-  font-size: 22px;
-  margin: 14px 14px;
+  display: inline-table;
+  width: 200px;
+  font-size: 24px;
+  margin: 12px 12px;
+  font-family: var(--font-family);
   -webkit-transition-duration: 0.5s; /* Safari */
   transition-duration: 0.5s;
-  cursor: pointer;
-  background-color: #d5f8d7;
-  color: black;
-  border: 2px solid white;
+  cursor: var(--cursor);
+  background-color: var(--secondary-color);
+  color: var(--background);
+  border: 2px solid var(--background-color);
   border-radius: 5px;
   text-transform: capitalize;
 }
@@ -45,7 +64,7 @@ body {
 .list-group {
   text-align: center;
   display: inline-block;
-  margin: 50px auto;
+  margin: auto;
   width: 100%;
 }
 
@@ -53,23 +72,39 @@ body {
   display: grid;
   float:left;
   text-align: center;
-  background-color: black;
+  background-color: var(--background);
 }
 
-   
 .modal-body {
-  background-color: black;
-  color: white;
+  background-color: var(--background);
+  color: var(--background-color);
   text-align: center;
-  }
+}
     
 .modal-body img {
   margin-bottom: 0;
   max-width: 40%;
   height: auto;
-  }
+}
 
 .modal-title {
   text-transform: capitalize;
   font-size: medium;
+}
+
+.page-footer {
+  background-color: var(--background-color);
+  color: var(--background);
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.page-footer a {
+  margin-bottom: 20px;
+  padding-left: 5px;
 }

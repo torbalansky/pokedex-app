@@ -111,6 +111,18 @@ let pokemonRepository = (function () {
       console.error(e);
     });
   }
+
+  $(document).ready(function() {
+    // Add an event listener to the logo-pokedex element
+    $(".logo-pokedex").click(function() {
+      // Refresh the page
+      location.reload();
+    });
+
+     // Get initial Pokemon data
+  getPokemon();
+});
+
   // This function takes an item as an argument, loads its details using the loadDetails function and shows a modal with the item details.
   function showDetails (item) {
     pokemonRepository.loadDetails(item)

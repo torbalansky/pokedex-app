@@ -7,20 +7,23 @@
     <link rel="shortcut icon" href="img/icons_pokedex_favi.png">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       <link rel="stylesheet" type="text/css" href="css/styles.css">
-   
 </head>
 <body>
   <header>
     <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand">POKEDEX</a>
+    <a class="navbar-brand">Pokedex</a>
     <img class="logo-pokedex" src="img/icons8-pokeball-96.png">
     <form class="form-inline">
-      <input id="search-input" class="form-control mr-sm-2" type="search" placeholder="Search Pokemon" aria-label="Search">
+      <input id="search-input" class="form-control mr-sm-2" type="search" placeholder="Search for a Pokemon" aria-label="Search">
       </form>
     </nav>
   </header>
-
   <main>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-5">Pokemon list</h1>
+      </div>
+    </div>
     <div class="container">
       <ul class="list-group pokemon-list">
       </ul>
@@ -43,7 +46,11 @@
       </div>
     </div>
   </main>
-
+<footer class="page-footer">
+    <div class="flex-container"></div>
+    <p>Find me on:</p>
+    <a href="https://github.com/torbalansky" target="_blank"> <img src="img/iconmonstr-github-1.svg" alt="Github"></a>
+</footer>
       <script src="js/promise-polyfill.js"></script>
       <script src="js/fetch-polyfill.js"></script>
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" 
@@ -53,6 +60,5 @@
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" 
       integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
       <script src="js/scripts.js"></script>
-  
   </body>
 </html>
